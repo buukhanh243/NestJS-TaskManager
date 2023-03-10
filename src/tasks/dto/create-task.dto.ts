@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsIn } from 'class-validator';
-import { TaskStatus } from '../task.model';
-export class createTaskDto {
+import { IsNotEmpty } from 'class-validator';
+
+export class CreateTaskDto {
   @IsNotEmpty()
   title: string;
 

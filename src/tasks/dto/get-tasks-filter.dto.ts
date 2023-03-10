@@ -1,15 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsOptional, IsIn } from 'class-validator';
-import { TaskStatus } from '../task.model';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { TaskStatus } from '../task-status.enum';
 
 export class GetTasksFilterDto {
-  // eslint-disable-next-line prettier/prettier
-  @IsNotEmpty()
   @IsOptional()
-  @IsIn([TaskStatus.DONE, TaskStatus.IN_PROGRESS, TaskStatus.OPEN])
-  status: TaskStatus;
+  @IsEnum(TaskStatus)
+  status?: TaskStatus;
 
-  @IsNotEmpty()
   @IsOptional()
-  search: string;
+  @IsString()
+  search?: string;
 }
